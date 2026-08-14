@@ -1,0 +1,17 @@
+{
+  "data_dir": "sample_data",
+  "arch": "resnet50",
+  "freeze_backbone": true,
+  "image_size": 224,
+  "batch_size": 32,
+  "val_split": 0.2,
+  "epochs": 15,
+  "lr": 0.001,
+  "early_stop_patience": 4,
+  "seed": 42,
+  "best_val_accuracy": 0.9743589743589743,
+  "class_to_idx": {
+    "cats": 0,
+    "dogs": 1
+  }
+}
