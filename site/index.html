@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Classifier Portfolio Demo</title>
+  <meta name="description" content="Live demo page for image classification pipeline project." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="kicker">Machine Learning Portfolio</p>
+      <h1>Production-Ready Image Classification Pipeline</h1>
+      <p class="lead">
+        End-to-end project with training, evaluation, CLI inference, Streamlit dashboard,
+        and FastAPI serving endpoint.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/" target="_blank" rel="noreferrer">View Repository</a>
+        <a class="btn" href="#run">Run Locally</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="overview">
+      <h2>What this project does</h2>
+      <p>
+        This model learns from labeled image folders (for example cats and dogs),
+        then predicts class labels for new images. It is designed as a complete
+        deployable pipeline, not only a notebook experiment.
+      </p>
+      <div class="grid three">
+        <article class="card">
+          <h3>Data Pipeline</h3>
+          <p>Loads ImageFolder data, applies augmentation, creates train/validation splits.</p>
+        </article>
+        <article class="card">
+          <h3>Model Training</h3>
+          <p>Transfer learning with ResNet50/EfficientNet, early stopping, scheduler, logging.</p>
+        </article>
+        <article class="card">
+          <h3>Deployment Interfaces</h3>
+          <p>CLI inference, Streamlit dashboard, and FastAPI endpoint for app integration.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Architecture flow</h2>
+        <ol class="flow">
+          <li>Dataset in class folders</li>
+          <li>Transforms and DataLoader</li>
+          <li>Transfer learning model training</li>
+          <li>Best checkpoint saved</li>
+          <li>Inference via CLI, Dashboard, and API</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section container" id="metrics">
+      <h2>Sample results</h2>
+      <div class="grid four metrics">
+        <article class="card metric">
+          <p class="label">Validation Accuracy</p>
+          <p id="metric-acc" class="value">--</p>
+        </article>
+        <article class="card metric">
+          <p class="label">Validation F1</p>
+          <p id="metric-f1" class="value">--</p>
+        </article>
+        <article class="card metric">
+          <p class="label">Latency (CPU)</p>
+          <p id="metric-lat" class="value">--</p>
+        </article>
+        <article class="card metric">
+          <p class="label">Model Size</p>
+          <p id="metric-size" class="value">--</p>
+        </article>
+      </div>
+      <p class="note">Update values in script.js from your latest report.</p>
+    </section>
+
+    <section class="section container" id="run">
+      <h2>Run locally</h2>
+      <p>Use these commands from project root:</p>
+      <pre><code>C:/Python314/python.exe -m pip install -r requirements.txt
+C:/Python314/python.exe src/train.py --data_dir sample_data --arch resnet50 --epochs 15
+C:/Python314/python.exe -m streamlit run dashboard.py --server.port 8501
+C:/Python314/python.exe -m uvicorn src.api:app --host 0.0.0.0 --port 8000</code></pre>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>Important note about GitHub Pages</h2>
+        <p>
+          GitHub Pages hosts static files. It cannot run Python model inference directly.
+          For interactive online inference, deploy Streamlit/FastAPI separately and link it here.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <p>Built for portfolio demos and client walkthroughs.</p>
+      <p id="year"></p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
